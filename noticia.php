@@ -1,19 +1,19 @@
 <?php
-    class Patrocinios{
+    class Noticia{
         private $titulo;
-        private $subTitulo;
+        private $sub-titulo;
         private $conteudo;
         private $data;
         private $id;
         private $imagem;
     
-    }
+    
     
     public function getTitulo(){
         return $this->titulo;
     }
     
-    public function getsubTitulo(){
+    public function getsub-Titulo(){
         return $this->subTitulo;
     }
     
@@ -37,11 +37,24 @@
         $this->titulo = %a;
     }
 
+    public function setsub-titulo($a){
+        $this->subTitulo = %a;
+    }
+    
+   public function setConteudo($a){
+        $this->conteudo = %a;
+    }
 
+    public function setData($a){
+        $this->data = %a;
+    }
 
+    public function setId($a){
+        $this->id = %a;
+    }
 
-
-
-
+    public function setImagem($a){
+        $this->iimagem = %a;
+    }
 
 ?>
