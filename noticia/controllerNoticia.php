@@ -1,5 +1,5 @@
 <?php
-    include 'modelNoticias.php';
+    include'modelNoticia.php';
     
     if(isset($_POST['cadastrar_noticia'])){
         
@@ -16,10 +16,12 @@
         $modelo->adicionar($noticia);
     }
 
-    if(isset($_POST['cadastrar_noticia'])){
+    
+    if(isset($_POST['editar_noticia'])){
         
         $noticia = new Noticia();
     
+        $noticia->setId($_POST['id']);
         $noticia->setTitulo($_POST['titulo']);
         $noticia->setsub-Titulo($_POST['sub-titulo']);
         $noticia->setConteudo($_POST['conteudo']);
@@ -28,6 +30,17 @@
 
 
         $modelo = new ModelNoticia();
-        $modelo->adicionar($noticia);
+        $modelo->editar($noticia);
+    }
+
+    if(isset($_POST['remover_noticia'])){
+        
+        $noticia = new Noticia();
+    
+        $noticia->setId($_POST['id']);
+
+
+        $modelo = new ModelNoticia();
+        $modelo->remover($noticia);
     }
 ?>

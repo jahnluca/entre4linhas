@@ -4,17 +4,17 @@
     class modelNoticia{
         
         public function adicionarNoticia(noticia $noticia){
-            include 'db.php':
+            include 'dbNoticia.php';
             
-            $query = "INSERT INTO noticia(titulo,sub-titulo,conteudo,data,imagem)
-                VALUES (:titulo,:sub-titulo,:conteudo,:data,:imagem)";
+            $query = "INSERT INTO noticia(titulo,sub_titulo,conteudo,data,imagem)
+                VALUES (:titulo,:sub_titulo,:conteudo,:data,:imagem)";
             
             $statement= $connection->prepare($query);
         
         
-            $valores = array;
+            $valores = array();
             $valores[':titulo'] = $user->getTitulo();
-            $valores[':sub-titulo'] = $user->getsub-Titulo();
+            $valores[':sub_titulo'] = $user->getsub_titulo();
             $valores[':conteudo'] = $user->getConteudo();
             $valores[':data'] = $user->getData();
             $valores[':imagem'] = $user->getImagem();
@@ -25,14 +25,14 @@
                 echo"Inserir notícia deu errror.";
                 print_r($statement->erroInfo());
             }else{
-                echo "Inserir usuáqrio deu certo."
+                echo "Inserir usuáqrio deu certo.";
             }
         }
         
         public function listar(noticia $noticia){
-            include 'db.php';
+            include 'dbNoticia.php';
             
-            $query = "SELECT id, titulo, sub-titulo, conteudo, data, imagem e FROM noticia";
+            $query = "SELECT id,titulo,sub_titulo,conteudo,data,imagem FROM noticia";
             
             $statement = $connection->prepare($query);
             
@@ -42,7 +42,7 @@
             echo $u['titulo'];
             
             $u = $result[1];
-            echo $u['sub-titulo'];
+            echo $u['sub_titulo'];
             
             $u = $result[2];
             echo $u['conteudo'];
@@ -59,16 +59,16 @@
         }
                 
         public function editar(noticia $noticia){
-        include 'db.php';
+        include 'dbNoticia.php';
         
         
-        $query = "UPDATE noticia SET titulo = :titulo, sub-titulo = :sub-titulo, conteudo=:conteudo, data=:data, imagem=:imagem WHERE id = :id";
+        $query = "UPDATE noticia SET titulo = :titulo, sub_titulo = :sub_titulo, conteudo=:conteudo, data=:data, imagem=:imagem WHERE id = :id";
         
             $statement= $connection->prepare($query);
 
             $valores = array();
             $valores[':titulo'] = $noticia->getTitulo();
-            $valores[':sub-titulo'] = $noticia->getSub-titulo();
+            $valores[':sub_titulo'] = $noticia->getSub_titulo();
             $valores[':conteudo'] = $noticia->getConteudo();
             $valores[':data'] = $noticia->getData();
             $valores[':imagem'] = $noticia->getImagem();
@@ -84,7 +84,7 @@
             }
 
         public function remover($id){
-        include 'db.php';
+        include 'dbNoticia.php';
         
             $query = "DELETE FROM noticia WHERE id = :id";
 
